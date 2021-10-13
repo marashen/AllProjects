@@ -1,0 +1,470 @@
+<!Doctype html>
+<html lang=en>
+	<script>
+		alert("Welcome!");
+	</script>
+	<script>
+		function starsA(){
+			//largest
+				document.getElementById("LSA").innerHTML = "UY Scuti is the largest, being 265 times the size of our Sun! ";
+				document.getElementById("LSA").style.color = 'blue';
+			//closest
+				document.getElementById("CSA").innerHTML = "Second to the Sun the closest star is Proxima Centauri, which is 4.246 light years away! ";
+				document.getElementById("CSA").style.color = 'blue';
+			//smallest
+				document.getElementById("SSA").innerHTML = "EBLM J0555-57Ab is the smallest, just about the size of Saturn! ";
+				document.getElementById("SSA").style.color = 'blue';
+			//farthest
+				document.getElementById("FSA").innerHTML = "Icarus is the farthest, its light has taken over 9 billion years to reach us! ";
+				document.getElementById("FSA").style.color = 'blue';
+			//youngest
+				document.getElementById("YSA").innerHTML = "Swift J1818.0-1607 is the youngest star discovered yet at 240 years old! ";
+				document.getElementById("YSA").style.color = 'blue';
+			//brightest
+				document.getElementById("BSA").innerHTML = "Sirius A is the brightest star in Earth's night sky, only planets & the moon outshine it! ";
+				document.getElementById("BSA").style.color = 'blue';
+			//oldest
+				document.getElementById("OSA").innerHTML = "Methuselah is the oldest known star, estimated at around 13.5 billion years old! ";
+				document.getElementById("OSA").style.color = 'blue';
+			//densest
+				document.getElementById("DSA").innerHTML = "J0740+6620 is not only one of the densest stars, but the most massive neutron star ever discovered! ";
+				document.getElementById("DSA").style.color = 'blue';
+		}
+	</script>
+	<script>
+		function update() {
+                     	var dt = new Date();
+			var he = dt.getHours()
+			var hm = he + 10
+			if (hm >= 24) {
+				hm = hm - 24;
+			}
+			var me = dt.getMinutes()
+			var mm = me - 11
+			if (mm < 0) {
+				mm = mm + 11;
+			}
+			var se = dt.getSeconds()
+			var sm = se - 3
+			if (sm < 0) {
+				sm = sm + 3;
+			}
+			document.getElementById('hour').innerHTML = hm;
+			document.getElementById('min').innerHTML = mm;
+			document.getElementById('sec').innerHTML = sm;
+			document.getElementById("hour").style.color = 'red';
+			document.getElementById("min").style.color = 'red';
+			document.getElementById("sec").style.color = 'red';
+			document.getElementById("hid1").style.color = 'black';
+			document.getElementById("hid2").style.color = 'black';
+		}
+	</script>
+<head>
+<link rel="apple-touch-icon" sizes="57x57" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="file:///Users/josephcolon/Downloads/Favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="file:///Users/josephcolon/Downloads/Favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="file:///Users/josephcolon/Downloads/Favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="file:///Users/josephcolon/Downloads/Favicons/favicon-16x16.png">
+<link rel="manifest" href="file:///Users/josephcolon/Downloads/Favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="file:///Users/josephcolon/Downloads/Favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">		
+	<style>
+	/* Just messing around with colors and such */
+	body {
+		background-image: url(https://m.media-amazon.com/images/I/61QkvLJVSvL._AC_SL1000_.jpg);
+		margin: auto;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+	} 
+	main {
+		background-color: brown;
+		color: orange; 
+		text-align: center;
+		max-width: 900px;
+		margin: auto;
+		border: 3px inset blue;
+		border-radius: 25px;
+	}
+	summary {
+		font-weight: bold;
+		color: blue;
+		font-family: "Courier New", monospace;
+		font-size: large;
+	}
+	img {
+		filter: grayscale(100%);
+		border-radius: 25px;
+	}
+	.wrap {
+		top: 0;
+		left: 0;
+		height: auto;
+		width: 100%;
+	}
+	.container1 {
+		top: 0;
+		left: 0;
+		position: absolute;
+		width: 100%;
+	}
+	.menu {
+		font: bold 12px/10px sans-serif;
+		text-align: center;
+		display: inline;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.menu li {
+		color: gray;
+		display: inline-block;
+		margin-right: -2px;
+		position: relative;
+		padding: 12px 40px;
+		border: 1px solid silver;
+		border-radius: 1.5px;
+		background-color: #FFF5f2;
+		cursor: pointer;
+	}
+	.menu li:hover {
+		background-color: black;
+		color: yellow;
+	}
+	.menu li:hover ul {
+		display: block;
+		opacity: 1;
+		visibility: visible;
+	}
+	.submenu {
+		padding: 0;
+		left: 0;
+		position: absolute;
+		top: 43.5px;
+		width: 125.5px;
+		opacity: 0;
+		visibility: hidden;
+	}
+	.submenu li {
+		background-color: gray;
+		display: block;
+		color: snow;
+	}
+	.submenu li:hover {
+		color: purple;
+		background-color: yellow;
+	}
+	.animation1 {
+        	width: 300px;
+        	height: 300px;
+        	background: url("file:///Users/josephcolon/Downloads/HTML:CSSmars.jpeg") no-repeat;
+       		display: inline-block;
+		margin-left: 75px;
+		transition: transform .2s;
+    	}
+    	.animation1:hover {
+        	background: url("file:///Users/josephcolon/Documents/GitHub/TechAcademyProjects/marsImage.jpeg") no-repeat;
+		animation-name: race;
+		animation-duration: 20s;
+		animation-iteration-count: 1;
+    	}
+	@keyframes race {
+		0%, 100% {
+			transform: scale(1);
+			transform: translateX(0px);
+			background-image: url("file:///Users/josephcolon/Documents/GitHub/TechAcademyProjects/marsImage.jpeg")
+		}
+		25% {
+			transform: translateX(-100px);
+		}
+		50% {
+			transform: scale(2);
+		}
+	}
+	.margdiv {
+		margin: 50px 18px 18px 18px;
+	}
+	.formdiv {
+		text-align: right;
+		text-decoration: bold;
+	}
+	.font1 {
+		color: #FF00FF;
+		font-family: Impact;
+		font-size: large;
+		text-align: left;
+		text-decoration: bold;
+		background-color: brown;
+	}
+	.font2 {
+		color: #FF00FF;
+		font-family: Impact;
+		font-size: large;
+		text-align: center;
+		text-decoration: bold;
+		background-color: brown;
+	}
+	.font3 {
+		color: #FF00FF;
+		font-family: Impact;
+		font-size: large;
+		text-align: right;
+		text-decoration: bold;
+		background-color: brown;
+	}
+	table {
+		border: 1px solid silver;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	td:hover {
+		background-color: black;
+		color: yellow;
+	}
+	tr, th {
+		background-color: black;
+		color: cornsilk;
+	}
+	tr, td {
+		background-color: darkgreen;
+		color: white;
+	}
+	ol {
+		list-style-type: upper-roman;
+	}
+	.ulf {
+		text-shadow: 1px 2px blue;
+	}
+	</style>
+	<meta name=author content=marashen charset=utf-8>
+	<title> Astronomical Astronomy &#169; </title>
+</head>
+<body>
+	<main>
+	<div class=wrap>
+		<div class=container1>
+			<ul class=menu>
+				<li><a href="#solar"> Solar System </a></li>
+				<li><a href="#mars"> Mars </a></li>
+				<li><a href="#stars"> Stars </li>
+				<li><a href="#links"> Quickhops
+					<ul class=submenu>
+						<li><a href=https://www.youtube.com/watch?v=uD4izuDMUQA> Universe Timelapse </a></li>
+						<li><a href=https://mars.nasa.gov/> About Mars </a></li>
+						<li><a href=https://www.natgeokids.com/uk/discover/science/space/facts-about-mars/> Mars for Kids </a></li>
+						<li><a href=https://www.space.com/17661-theory-general-relativity.html> Relativity </a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class=margdiv>
+	<p class=font2> The Unbelievable Scale of the Universe </p>
+	<iframe width=853 height=505 src=https://www.youtube.com/embed/i93Z7zljQ7I?autoplay=1></iframe>
+	<!-- This is actually a really cool video that I definitely recommend watching! -->
+	<p class=font2><a href=https://www.youtube.com/watch?v=i93Z7zljQ7I><font face=Impact> Full Screen Video </font></a></p>
+	<!-- Some planet facts I think are cool -->
+	<section>
+		<h1 class="font1" id="solar"> The <em>Terrestrial</em> &nbspPlanets </h1>
+			<div style="text-align: left;">
+			<ol>
+				<li>
+				<details>
+				<summary> Mercury </summary>
+					<ul class=ulf>
+						<li> Almost Tidally Locked 3:2 spin. </li>
+						<li> Days are longer then years. </li>
+						<li> 0.38G or 3.7 m/s<sup>2</sup>. </li>
+						<li> Surface Temperature ranges from -279°F to 801°F. </li>
+						<li> Atmospheric Pressure is 10<sup>-12</sup> bar. </li>
+					</ul>
+				</details>
+				</li>
+				<li> 
+				<details>
+				<summary> Venus </summary>
+					<ul class=ulf>
+						<li> Runaway Greenhouse Effect. </li>
+						<li> Venus spins backwards, or clockwise. </li>
+						<li> 0.91G or 8.87 m/s<sup>2</sup>. </li>
+						<li> Surface Temperature ranges from 820°F to 900°F. </li>
+						<li> Atmospheric Pressure is 95 bars. </li>
+					</ul>
+				</details>
+				</li>
+				<li>
+				<details>
+				<summary> Earth </summary>
+					<ul class=ulf>
+						<li> Days are slowly getting longer. </li>
+						<li> Gravitational Fields change based on location. </li>
+						<li> 1.00G or 9.81 m/s<sup>2</sup>. </li>
+						<li> Surface Temperature ranges from -129°F to 136°F. </li>
+						<li> Atmospheric Pressure is 1.01 bar. </li>
+					</ul>
+				</details>
+				</li>
+				<li>
+				<details>
+				<summary> Mars </summary>
+					<ul class=ulf>
+						<li> Very Thin Atmosphere. </li>
+						<li> Sunsets on Mars are blue.  </li>
+						<li> 0.38 G's or 3.72 m/s<sup>2</sup>. </li>
+						<li> Surface Temperature ranges from -125°F to 23°F. </li>
+						<li> Atmospheric Pressure is 0.006 bar. </li>
+					</ul>
+				</details>
+				</li> 
+			</ol>
+			</div>
+	</section>
+	<!-- I love Mars so had to dedicate a bit of this page to the red planet lol -->
+	<article>
+		<h3 id="mars">
+			<font color=red face=Lobster> Mars Information </font>
+		</h3>
+			<p>
+				<blockquote cite=https://www.space.com/47-mars-the-red-planet-fourth-planet-from-the-sun.html>
+				<font color=yellow size=3> Mars is the fourth planet from the sun. Befitting the Red Planet's bloody color, the Romans named it after their god of war. In truth, the Romans 				copied the ancient Greeks, who also named the planet after their god of war, Ares.<br><br>
+				Other civilizations also typically gave the planet names based on its color — for example, the Egyptians named it "Her Des-her," meaning "the red one," while ancient 				Chinese astronomers dubbed it "the fire star." 
+				</font>
+				</blockquote>
+			</p>
+			<p><font color="orange" size="5">Current Time on Mars:
+				<span id="hour" style="color:black;">??</span>
+				<span id="hid1" style="color:white;">:</span>
+				<span id="min" style="color:black;">??</span>
+				<span id="hid2" style="color:white;">:</span>
+				<span id="sec" style="color:black;">??</span>
+			</font>
+			</p>
+			<p><button onclick=update()>Reveal Martian Time</button></p>
+			<div class=animation1></div>
+	</article>
+	<!-- Basic information on some of my favorite stars -->
+	<section>
+		<h4 id="stars" class="font2">
+		<b> The Closest, Largest, & Weirdest Celestial Bodies 
+		</b>
+		</h4>
+		<table style="width: 100%;">
+			<tr>
+				<th>Designation</th>
+				<th>Spectral Type</th>
+				<th>Mass/Size</th>
+				<th>Light Years Away</th>
+			</tr>
+			<tr>
+				<td>The Sun</td>
+				<td><span style="color:#FFF5f2;font-weight:bold;"> G2V </span></td>
+				<td>1.000 M</td>
+				<td>8 lm</td>
+			</tr>
+			<tr>
+				<td>Proxima Centauri</td>
+				<td><span style="color:#FFCC6F;font-weight:bold;"> M5.5V </span></td>
+				<td>0.123 M</td>
+				<td>4.246 ly</td>
+			</tr>
+			<tr>
+				<td>Barnard’s Star</td>
+				<td><span style="color:#FFC97F;font-weight:bold;"> M4.0V </span></td>
+				<td>0.144 M</td>
+				<td>5.978 ly</td>
+			</tr>
+			<tr>
+				<td>Wolf 359</td>
+				<td><span style="color:#FFC370;font-weight:bold;"> M6.0V </span></td>
+				<td>0.090 M</td>
+				<td>7.795 ly</td>
+			</tr>
+			<tr>
+				<td>Sirius A</td>
+				<td><span style="color:#B5C7FF;font-weight:bold;"> A1V </span></td>
+				<td>2.000 M</td>
+				<td>8.611 ly</td>
+			</tr>
+			<tr>
+				<td>Procyon</td>
+				<td><span style="color:#F1EFFF;font-weight:bold;"> F5IV-V </span></td>
+				<td>1.499 M</td>
+				<td>11.45 ly</td>
+			</tr>
+			<tr>
+				<td>Betelgeuse</td>
+				<td><span style="color:#FFCA8A;font-weight:bold;"> M1I </span></td>
+				<td>11.00 M</td>
+				<td>642.5 ly</td>
+			</tr>
+			<tr>
+				<td>Rigel</td>
+				<td><span style="color:#B6CEFF;font-weight:bold;"> B8I </span></td>
+				<td>18.00 M</td>
+				<td>864.3 ly</td>
+			</tr>
+			<tr>
+				<td>UY Scuti</td>
+				<td><span style="color:#FFBB7B;font-weight:bold;"> M4I-I </span></td>
+				<td>i 25-40 M</td>
+				<td>5219 ly</td>
+			</tr>
+			<tr>
+				<td>Pillars of Creation</td>
+				<td><span style="color:#00FFEC;font-weight:bold;"> Nebula </span></td>
+				<td>4 ly</td>
+				<td>7000 ly</td>
+			</tr>
+			<tr>
+				<td>Messier 31</>
+				<td><span style="color:#FFE1C7;font-weight:bold;"> Galaxy </span></td>
+				<td>110,000 ly</td>
+				<td>2.537m ly</td>
+			</tr>	
+			<tr>
+				<td>SMSS J2157-3602</td>
+				<td><span style="color:#49D6FF;font-weight:bold;"> Quasar </span></td>
+				<td>34b M</td>
+				<td>12.5b ly</td>
+			</tr>
+		</table>
+	</section>
+	<div class=formdiv>
+		<p class=font3> If you're up for some research.. </p>
+		<form action="">
+			<label id=LSA>Largest Star? </label><input type="text" name="LS"><br>
+			<label id=CSA>Closest Star? </label><input type="text" name="CS"><br>
+			<label id=SSA>Smallest Star? </label><input type="text" name="SS"><br>
+			<label id=FSA>Farthest Star? </label><input type="text" name="FS"><br>
+			<label id=YSA>Youngest Star? </label><input type=”text” name=”YS”><br>
+			<label id=BSA>Brightest Star? </label><input type=”text” name=”BS”><br>
+			<label id=OSA>Oldest Star? </label><input type=”text” name=”OS”><br>
+			<label id=DSA>Densest Star? </label><input type=”text” name=”DS”><br>
+			<input type="button" value="Reveal Answers!" onclick="starsA()">
+		</form>
+		</div>
+		<footer> 
+		<p id="links"><strong><font color="blue" face="Courier"> Links </font></strong></p>
+			<nav>
+			<div style="color: blue;">
+				<a href=https://www.youtube.com/watch?v=uD4izuDMUQA> Universe Timelapse </a> |
+				<a href=https://mars.nasa.gov/> About Mars </a> |
+				<a href=https://www.natgeokids.com/uk/discover/science/space/facts-about-mars/> Mars for Kids </a> |
+				<a href=https://www.space.com/17661-theory-general-relativity.html> Relativity </a>
+			</nav>
+			</div>
+		</footer>
+	</div>
+	</main>
+</body>
+</html>
