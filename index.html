@@ -180,7 +180,33 @@
 		function reset() {
 			document.getElementById("ansbox").value = ""
 		}
-	</script>	
+	</script>
+	<script>
+		function galaxy(Name, Distance, Diameter, Stars) {
+			this.galaxyN = Name;
+			this.galaxyT = Distance;
+			this.galaxyL = Diameter;
+			this.galaxyS = Stars;
+		}
+
+		var g1 = new galaxy("The Milky Way", "26,000 ly", "100,000 ly's", "100 billion");
+		var g2 = new galaxy("Andromeda", "2.537m ly", "260,000 ly's", "1 trillion");
+		var g3 = new galaxy("Triangulum", "2.723m ly", "60,000 ly's", "40 billion");
+		var g4 = new galaxy("NGC 6822", "1.631m ly", "7,000 ly's", "10 million");
+
+		function g1click() {
+			document.getElementById("mway").innerHTML = "This is "+g1.galaxyN +". The galactic center is located about "+g1.galaxyT +" from our Solar System. With a diameter of "+g1.galaxyL +", it's estimated to have over "+g1.galaxyS +" stars!";
+		}
+		function g2click() {
+			document.getElementById("andro").innerHTML = "This is "+g2.galaxyN +". It is located about "+g2.galaxyT +" from our own galaxy! It has a massive range with a diameter nearing "+g2.galaxyL +" & contains over "+g2.galaxyS +" stars!";
+		}
+		function g3click() {
+			document.getElementById("trig").innerHTML = "This is "+g3.galaxyN +". The galactic center is located about "+g3.galaxyT +" from our Solar System. With a diameter of "+g3.galaxyL +", it's estimated to have over "+g3.galaxyS +" stars!";
+		}
+		function g4click() {
+			document.getElementById("ngc").innerHTML = "This is "+g4.galaxyN +". It is located about "+g4.galaxyT +" from our own galaxy! It has a massive range with a diameter nearing "+g4.galaxyL +" & contains over "+g4.galaxyS +" stars!";
+		}
+	</script>		
 <head>
 <link rel="apple-touch-icon" sizes="57x57" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-60x60.png">
@@ -359,7 +385,7 @@
 		<div class=container1>
 			<ul class=menu>
 				<li><a href="#solar"> Solar System </a></li>
-				<li><a href="#stars"> Stars </a></li>
+				<li><a href="#stars"> The Local Group </a></li>
 				<li><a href="#rela"> Relativity </li>
 				<li><a href="#links"> Quickhops
 					<ul class=submenu>
@@ -489,7 +515,36 @@
 	</article>
 	<!-- Basic information on some of my favorite stars -->
 	<section>
-		<h4 id="stars" class="font2">
+		<h4 id="stars" class="font2"> The Local Group </h4>
+			<p> The Local Group is a large cluster of galaxies & gravitationally dense space that is gravitationally bound to us. As the Universe continues to expand rapidly all other galaxies outside of our Local Group will be lost to us forever! This is because the expansion of the Universe is faster then we could ever hope to travel & by the time we ever reached the edge of the Local Group all other celestial bodies will be long gone. </p>
+		<h3 style="color: blue;"> Galaxies in The Local Group </h3>
+	<table>
+		<tr>
+			<td style="background-color:black;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjjYkqQt8FYSe9WOQ6zo82w2eJoNE070W0NQ&usqp=CAU" width="350" "height="350" alt="The Milky Way"></td>
+			<td style="background-color:black;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVs_pCKVTZX2iJG1k0Dfa_TA9bD3n7xyZLEw&usqp=CAU" width="350" height="350" alt="Andromeda"></td>
+		</tr>
+		<tr>
+			<td id="mway" style="background-color:blue;"></td>
+			<td id="andro" style="background-color:blue;"></td>
+		</tr>
+		<tr>
+			<td><input class="inputB" type="button" value="Information on the Galaxy in this image!" onclick="g1click()"></td>
+			<td><input class="inputB" type="button" value="Information on the Galaxy in this image!" onclick="g2click()"></td>
+		</tr>
+		<tr>
+			<td style="background-color:black;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGGbBKclja7peiT03c8pykt4xDx1aYr24IKA&usqp=CAU" width="350" "height="350" alt="Triangulum Galaxy"></td>
+			<td style="background-color:black;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH71mpDiAapdROGtROnh7N4FY2m9D2R-f3bQ&usqp=CAU" width="350" height="350" alt="NGC 6822"></td>
+		</tr>
+		<tr>
+			<td id="trig" style="background-color:blue;"></td>
+			<td id="ngc" style="background-color:blue;"></td>
+		</tr>
+		<tr>
+			<td><input class="inputB" type="button" value="Information on the Galaxy in this image!" onclick="g3click()"></td>
+			<td><input class="inputB" type="button" value="Information on the Galaxy in this image!" onclick="g4click()"></td>
+		</tr>
+	</table>
+		<h4 class="font2">
 		<b> The Closest, Largest, & Weirdest Celestial Bodies 
 		</b>
 		</h4>
