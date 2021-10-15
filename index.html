@@ -206,7 +206,67 @@
 		function g4click() {
 			document.getElementById("ngc").innerHTML = "This is "+g4.galaxyN +". It is located about "+g4.galaxyT +" from our own galaxy! It has a massive range with a diameter nearing "+g4.galaxyL +" & contains over "+g4.galaxyS +" stars!";
 		}
-	</script>		
+	</script>
+	<script>
+		var time;
+		function clocksA() {
+			var light = document.getElementById("lightP").value;
+			document.getElementById("lightX").style.color = 'green';
+			document.getElementById("earthX").style.color = 'green';
+			document.getElementById("lightX").innerHTML = light;
+			document.getElementById("relativeX").style.color = 'green';
+			var lightD = parseFloat(light) / 100;
+			var earthT = 1;
+			function timers() {
+				var lightS = earthT * 31557600;
+				var lqp1 = 299792458 * 299792458;
+				var lqp2 = lightD * 299792458;
+				var lqp3 = lqp2 * lqp2;
+				var lqp4 = lqp3 / lqp1;
+				var lqp5 = 1 - lqp4;
+				var lqp6 = Math.sqrt(lqp5);
+				var lqp7 = lightS * lqp6;
+				var lqpM = lqp7 / 60;
+				var lqpH = lqpM / 60;
+				var lqpD = lqpH / 24;
+				var lqpY = lqpD / 365;
+				var relLX = Math.floor(lqpY)
+				relativeX.innerHTML = relLX;
+				earthT = earthT + 1;
+				earthX.innerHTML = earthT;
+				time = setTimeout(timers, 250);
+				if (isNaN(light)) {
+					clearTimeout(time);
+					document.getElementById("lightX").innerHTML = "Reenter Light %";
+					document.getElementById("lightX").style.color = 'red';
+					document.getElementById("earthX").innerHTML = "Reenter Light %";
+					document.getElementById("earthX").style.color = 'red';
+					document.getElementById("relativeX").innerHTML = "Reenter Light %";
+					document.getElementById("relativeX").style.color = 'red';
+				}
+				else if (light > 100 || light < 0) {
+					clearTimeout(time);
+					document.getElementById("lightX").innerHTML = "Reenter Light %";
+					document.getElementById("lightX").style.color = 'red';
+					document.getElementById("earthX").innerHTML = "Reenter Light %";
+					document.getElementById("earthX").style.color = 'red';
+					document.getElementById("relativeX").innerHTML = "Reenter Light %";
+					document.getElementById("relativeX").style.color = 'red';						}
+			}
+			timers();
+		}
+		function clocksS() {
+			clearTimeout(time);
+			var earthT = 0
+			var lightS = 0
+			document.getElementById("lightX").innerHTML = "Reenter Light %";
+			document.getElementById("lightX").style.color = 'red';
+			document.getElementById("earthX").innerHTML = "Reenter Light %";
+			document.getElementById("earthX").style.color = 'red';
+			document.getElementById("relativeX").innerHTML = "Reenter Light %";
+			document.getElementById("relativeX").style.color = 'red';
+		}
+	</script>	
 <head>
 <link rel="apple-touch-icon" sizes="57x57" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-60x60.png">
@@ -649,6 +709,23 @@
 				<h3> <font color="white" face="Lobster"> Calculating Time Dilation </h3>
 				<p><em> The following equations are used to calculate time dilation! Satellites orbiting the Earth actually use this equation to make micro adjustments to their internal clocks. This is because even with Earth's 'relatively' weak gravitational field, space-time is still stretched; ever so slightly!</em><br><br> For a more personal example, let's say you have a friend traveling for 20 years at 50% light speed (which is around 150,000,000 m/s). Plugging in those numbers into the calculators below will tell you (after converting seconds to years) how much time for them has passed; relative to your 20 years on Earth!<br><br>
 If you've ever seen Interstellar you'll know how gravity can affect time dilation as well! Lets use the supermassive blackhole Ton-618 for this next example. With an estimated mass of 66 billion solar masses, or 1.31 x 10<sup>41</sup>kg & a Schwarzschild radius of 1300 astronomical units (that's around 195 billion km, or for calculating purposes; 195000000000000 m), if you were as close as possible to this blackhole you can plug in the numbers to see how long 1 year for you would be for the rest of the universe!</p></font>
+					<p style="color:yellow;"> Enter a number between 1 & 100 below to see special relativity in clock time! </p>
+					<table>
+					<tr>
+						<td colspan="1"><input class="inputB" type="button" onclick="clocksS()" value="Reset"></td>
+						<td><input class="inputT" type="text" id="lightP"></td>
+						<td><input class="inputB" type="button" onclick="clocksA()" value="Run the Clocks!"></td>
+					<tr>
+						<th> Earth Time (Years) </th>
+						<th> Relative Time (Years) </th>
+						<th> Light Speed % </th>
+					</tr>
+					<tr>
+						<td id="earthX" style="background-color:yellow;"></td>
+						<td id="relativeX" style="background-color:yellow;"></td>
+						<td id="lightX" style="background-color:yellow;"></td>
+					</tr>
+					</table>					
 					<ol>
 					<li>
 						<details>
