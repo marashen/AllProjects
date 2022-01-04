@@ -1,0 +1,1 @@
+This website was created using Bootstrap and video tutorials from The Tech Academy! I plan to update this website in the near future to create a webapage more personalized by me, but still using this format.
