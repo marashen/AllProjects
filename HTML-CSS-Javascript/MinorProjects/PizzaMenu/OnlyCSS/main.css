@@ -1,0 +1,77 @@
+	body {
+		background-color: gold;
+		color: orange; 
+		text-align: center;
+		max-width: 900px;
+		margin: auto;
+		border: 3px inset purple;
+		border-radius: 25px;
+	}
+	h1 {
+		color: orange;
+		font-family: Impact;
+		font-size: large;
+		text-align: left;
+		text-decoration: bold;
+	}
+	h3 {
+		color: orange;
+		font-family: Impact;
+		font-size: large;
+		text-align: left;
+		text-decoration: bold;
+	}
+	div {
+		color: blue;
+		font-family: Courier New;
+		font-size: large;
+		text-align: left;
+		text-decoration: bold;
+	}
+	#menuA {
+		width: 400px;
+		height: 470px;
+		margin: 10px auto;
+	}
+	#menuF {
+		width: 400px;
+		height: 200px;
+	}
+	#price {
+		width: 200px;
+		height: 190px;
+		margin: 0px auto;
+		float: right;
+	}
+	.menuL {
+		width: 200px;
+		height: 200px;
+		float: left;
+	}
+	.menuM {
+		width: 200px;
+		height: 200px;
+		float: right;
+	}
+	.menuR {
+		width: 200px;
+		height: 200px;
+		float: right;
+	}
+	#showT {
+		width: 200px;
+		height: 190px;
+		margin: 0px auto;
+		float: left;
+	}
+	#menuC {
+		top: 0;
+		margin: 0px auto;
+		width: 400px;
+		height: 200px;
+	}
+	#inputB {
+		margin: 10px 0px 0px 100px;
+		width: 100px;
+		height: 40px;
+	}
