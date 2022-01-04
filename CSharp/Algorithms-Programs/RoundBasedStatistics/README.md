@@ -1,0 +1,1 @@
+Made this complex thing to help me balance out one of my games. I use the formulas to tweak enemies health growth, player weapon damage, and player weapon ammo usage in order to optimize my game as much as possible! Check out the full script to my game under the Python tab, where I should have a youtube link with some gameplay!
