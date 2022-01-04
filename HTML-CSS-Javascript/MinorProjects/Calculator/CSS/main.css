@@ -1,0 +1,42 @@
+   .head {
+		margin-bottom: 1px;
+		text-align:center;
+		width: 202px;
+		color:yellow;
+		border: solid black 5px;
+		margin-left: auto;
+		margin-right: auto;
+		background-color:purple;
+	}
+	.inputB {
+		background-color:purple;
+		color: yellow;
+		border: solid yellow 2px;
+		width:100%
+	}
+	.inputT {
+		background-color: black;
+		color: yellow;
+		border: solid black 2px;
+		text-align: center;
+		width: 100%
+	}
+	table {
+		border: 5px solid black;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: black;
+	}
+	td:hover {
+		background-color: blue;
+		color: orange;
+	}
+	tr, th {
+		background-color: black;
+		color: cornsilk;
+	}
+	tr, td {
+		background-color: darkgreen;
+		color: white;
+	}
