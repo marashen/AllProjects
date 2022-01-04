@@ -1,7 +1,7 @@
 # AllProjects
 1.) Click on a language folder to find any and all projects I've completed and coded in said language(s)!
 
-2.) All Projects have a name that includes the complete code of the project.
+2.) All Projects have a labeled folder that includes the complete code of the project.
 
 3.) Since some projects have multiple languages, you can find split up code in the designated folders.
 
