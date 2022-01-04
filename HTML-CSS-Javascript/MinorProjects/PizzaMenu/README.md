@@ -1,0 +1,1 @@
+Created this as part of an assignment for the Tech Academy. Probably wouldn't have included it, but I did enjoy writing the JavaScript for it as it felt slightly less beginner then alot of the assignments. There is a CSS bug that happens with the total I never bothered to fix and probably won't but just a heads up!
