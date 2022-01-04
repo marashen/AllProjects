@@ -4,7 +4,7 @@ This is the first website I ever created! I learned a lot about web development 
 
 Guide:
 
-- index.html contains the complete website code with all 3 languages in one file.
+- The Full Website folder contains the complete website code with all 3 languages in one file.
 
 - The other folders contain the langauge designated by the name.
 
