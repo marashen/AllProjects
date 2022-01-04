@@ -1,0 +1,1 @@
+Created this for an assignment by the Tech Academy. This was one of the few assignments that I had to be walked through a bit by the LMS. The Javascript and HTML didn't bother me much but the CSS was different then what I was used too. Regardless I figured it out, and since it caused me trouble it earned its spot here!
