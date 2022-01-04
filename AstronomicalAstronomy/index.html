@@ -1,0 +1,1373 @@
+<!Doctype html>
+<html lang=en>
+<script>
+//picture variables
+	var marsI = "<img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqfLBufrKeh5Bm3NELle22FuAtVq-0BOi-Bg&usqp=CAU\" width=\"80px\" height=\"52px\" alt=\"Mars\">";
+	var earthI = "<img src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr-zutBH2nG3LcwB05oSuchJrTcfu44JEgzw&usqp=CAU\" width=\"60px\" height=\"52px\" alt=\"Earth\">";
+//welcome alert
+	alert("Welcome!");
+//answer reveals for quiz
+	function starsA(){
+	//largest
+		document.getElementById("LSA").innerHTML = "UY Scuti is the largest, being 265 times the size of our Sun! ";
+		document.getElementById("LSA").style.color = 'blue';
+	//closest
+		document.getElementById("CSA").innerHTML = "Second to the Sun the closest star is Proxima Centauri, which is 4.246 light years away! ";
+		document.getElementById("CSA").style.color = 'blue';
+	//smallest
+		document.getElementById("SSA").innerHTML = "EBLM J0555-57Ab is the smallest, just about the size of Saturn! ";
+		document.getElementById("SSA").style.color = 'blue';
+	//farthest
+		document.getElementById("FSA").innerHTML = "Icarus is the farthest, its light has taken over 9 billion years to reach us! ";
+		document.getElementById("FSA").style.color = 'blue';
+	//youngest
+		document.getElementById("YSA").innerHTML = "Swift J1818.0-1607 is the youngest star discovered yet at 240 years old! ";
+		document.getElementById("YSA").style.color = 'blue';
+	//brightest
+		document.getElementById("BSA").innerHTML = "Sirius A is the brightest star in Earth's night sky, only planets & the moon outshine it! ";
+		document.getElementById("BSA").style.color = 'blue';
+	//oldest
+		document.getElementById("OSA").innerHTML = "Methuselah is the oldest known star, estimated at around 13.5 billion years old! ";
+		document.getElementById("OSA").style.color = 'blue';
+	//densest
+		document.getElementById("DSA").innerHTML = "J0740+6620 is not only one of the densest stars, but the most massive neutron star ever discovered! ";
+		document.getElementById("DSA").style.color = 'blue';
+	}
+//time refresh for martian clocks
+	function update() {
+		var dt = new Date();
+		var he = dt.getHours()
+		var hm = he + 10
+		if (hm >= 24) {
+			hm = hm - 24;
+		}
+		var me = dt.getMinutes()
+		var mm = me - 11
+		if (mm < 0) {
+			mm = mm + 11;
+		}
+		var se = dt.getSeconds()
+		var sm = se - 3
+		if (sm < 0) {
+			sm = sm + 3;
+		}
+		document.getElementById('hour').innerHTML = hm;
+		document.getElementById('min').innerHTML = mm;
+		document.getElementById('sec').innerHTML = sm;
+		document.getElementById("hour").style.color = 'red';
+		document.getElementById("min").style.color = 'red';
+		document.getElementById("sec").style.color = 'red';
+		document.getElementById("hid1").style.color = 'black';
+		document.getElementById("hid2").style.color = 'black';
+	}
+//special relativity calculator
+	function calcR() {
+		var timeV = document.getElementById("time1").value;
+		var velV = document.getElementById("vel").value;
+		var lightV = document.getElementById("light1").value;
+		var eqp1 = parseFloat(lightV) * parseFloat(lightV)
+		var eqp2 = parseFloat(velV) * parseFloat(velV)
+		var eqp3 = eqp2 / eqp1
+		var eqp4 = 1 - eqp3
+		var eqp5 = Math.sqrt(eqp4)
+		var answerS = parseFloat(timeV) * eqp5
+		var answerSR = Math.round(answerS)
+		if(!isNaN(answerSR)) {
+			document.getElementById("srans").innerHTML = "Time Dilation in seconds = "+answerSR;
+			document.getElementById("srans").style.color = 'darkgreen';
+			document.getElementById("srans").style.fontFamily = 'Courier New';
+			document.getElementById("srans").style.fontStyle = 'italic';
+		}	
+		else {
+			document.getElementById("srans").innerHTML = "Try double checking your numbers!"
+			document.getElementById("srans").style.color = 'red';
+		}
+	}
+//years to seconds conversion
+	function calcY() {
+		var yearsV = document.getElementById("years").value;
+		var yearsL = parseFloat(yearsV) / 4
+		var yearsD = parseFloat(yearsV) * 365
+		var yearsDL = yearsL + yearsD
+		var yearsH = yearsDL * 24
+		var yearsM = yearsH * 60
+		var yearsS = yearsM * 60
+		var yearR = Math.round(yearsS)
+		if(!isNaN(yearR)) {
+			document.getElementById("years2s").innerHTML = yearsV+" years in seconds = "+yearR;
+			document.getElementById("years2s").style.color = 'darkgreen';
+			document.getElementById("years2s").style.fontFamily = 'Courier New';
+			document.getElementById("years2s").style.fontStyle = 'italic';
+		}	
+		else {
+			document.getElementById("years2s").innerHTML = "Try double checking your numbers!"
+			document.getElementById("years2s").style.color = 'red';
+		}
+	}
+//seconds to years conversion
+	function calcS() {
+		var secV = document.getElementById("seconds").value;
+		var secMa = parseFloat(secV) / 60
+		var secHa = secMa / 60
+		var secDa = secHa / 24
+		var secYa = secDa / 365
+		var secL = secYa / 4
+		var secMb = parseFloat(secV) / 60
+		var secHb = secMb / 60
+		var secDb = secHb / 24
+		var secDL = secDb - secL
+		var secYT = secDL / 365
+		var secR = Math.ceil(secYT)			
+		if(!isNaN(secR)) {
+			document.getElementById("seconds2y").innerHTML = secV+" seconds in years = "+secR;
+			document.getElementById("seconds2y").style.color = 'darkgreen';
+			document.getElementById("seconds2y").style.fontFamily = 'Courier New';
+			document.getElementById("seconds2y").style.fontStyle = 'italic';
+		}	
+		else {
+			document.getElementById("seconds2y").innerHTML = "Try double checking your numbers!"
+			document.getElementById("seconds2y").style.color = 'red';
+		}
+	}
+//gravitational time dilation calculator
+	function calcG() {
+		var time2V = document.getElementById("time2").value;
+		var kgV = document.getElementById("mass").value;
+		var expoV = document.getElementById("exop").value;
+		var distV = document.getElementById("dist").value;
+		var gconsV = document.getElementById("gcons").value;
+		var light2V = document.getElementById("light2").value;
+		var expoVT = parseFloat(expoV);
+		var exp = Math.pow(10,expoVT)
+		var massV = parseFloat(kgV) * exp
+		var gp1 = parseFloat(light2V) * parseFloat(light2V)
+		var gp2 = parseFloat(distV) * gp1
+		var gp3 = parseFloat(gconsV) * massV
+		var gp4 = 2 * gp3
+		var gp5 = gp4 / gp2
+		var gp6 = 1 - gp5
+		var gp7 = Math.sqrt(gp6)
+		var gp8 = parseFloat(time2V) / gp7
+		var gpR = Math.round(gp8)
+		if(!isNaN(gpR)) {
+			document.getElementById("gtdans").innerHTML = "Time Dilation in seconds = "+gpR;
+			document.getElementById("gtdans").style.color = 'darkgreen';
+			document.getElementById("gtdans").style.fontFamily = 'Courier New';
+			document.getElementById("gtdans").style.fontStyle = 'italic';
+		}	
+		else {
+			document.getElementById("gtdans").innerHTML = "Try double checking your numbers!"
+			document.getElementById("gtdans").style.color = 'red';
+		}
+	}
+//planet superlatives answer display
+	function display(val) {
+		document.getElementById("ansbox").value = ""
+		document.getElementById("ansbox").value+=val
+	}
+	function reset() {
+		document.getElementById("ansbox").value = ""
+	}
+//galaxy naming & information mechanism
+	var galaxiesN = [];
+	function galaxy(Name, Distance, Diameter, Stars) {
+		this.galaxyN = Name;
+		this.galaxyT = Distance;
+		this.galaxyL = Diameter;
+		this.galaxyS = Stars;
+		galaxiesT();
+	}
+	var g1 = new galaxy("The Milky Way", "26,000 ly", "100,000 ly's", "100 billion");
+	var g2 = new galaxy("Andromeda", "2.537m ly", "260,000 ly's", "1 trillion");
+	var g3 = new galaxy("Triangulum", "2.723m ly", "60,000 ly's", "40 billion");
+	var g4 = new galaxy("NGC 6822", "1.631m ly", "7,000 ly's", "10 million");
+	function galaxiesT() {
+		galaxiesN[0] = "The Milky Way";
+		galaxiesN[1] = "Andromeda";
+		galaxiesN[2] = "Triangulum";
+		galaxiesN[3] = "NGC 6822";
+	}
+	function g1click() {
+		document.getElementById("mway").innerHTML = "This is "+g1.galaxyN +". The galactic center is located about "+g1.galaxyT +" from our Solar System. With a diameter of "+g1.galaxyL +", it's estimated to have over "+g1.galaxyS +" stars!";
+		document.getElementById("titles0").innerHTML = galaxiesN[0];
+	}
+	function g2click() {
+		document.getElementById("andro").innerHTML = "This is "+g2.galaxyN +". It is located about "+g2.galaxyT +" from our own galaxy! It has a massive range with a diameter nearing "+g2.galaxyL +" & contains over "+g2.galaxyS +" stars!";
+		document.getElementById("titles1").innerHTML = galaxiesN[1];
+	}
+	function g3click() {
+		document.getElementById("trig").innerHTML = "This is "+g3.galaxyN +". The galactic center is located about "+g3.galaxyT +" from our Solar System. With a diameter of "+g3.galaxyL +", it's estimated to have over "+g3.galaxyS +" stars!";
+		document.getElementById("titles2").innerHTML = galaxiesN[2];
+	}
+	function g4click() {
+		document.getElementById("ngc").innerHTML = "This is "+g4.galaxyN +". It is located about "+g4.galaxyT +" from our own galaxy! It has a massive range with a diameter nearing "+g4.galaxyL +" & contains over "+g4.galaxyS +" stars!";
+		document.getElementById("titles3").innerHTML = galaxiesN[3];
+	}
+//special relativity clock
+	var time;
+	function clocksA() {
+		clearTimeout(time);
+		var earthT = 0
+		var lightS = 0
+		var light = document.getElementById("lightP").value;
+		document.getElementById("lightX").style.color = 'green';
+		document.getElementById("earthX").style.color = 'green';
+		document.getElementById("lightX").innerHTML = light;
+		document.getElementById("relativeX").style.color = 'green';
+		var lightD = parseFloat(light) / 100;
+		var earthT = 1;
+		function timers() {
+			var lightS = earthT * 31557600;
+			var lqp1 = 299792458 * 299792458;
+			var lqp2 = lightD * 299792458;
+			var lqp3 = lqp2 * lqp2;
+			var lqp4 = lqp3 / lqp1;
+			var lqp5 = 1 - lqp4;
+			var lqp6 = Math.sqrt(lqp5);
+			var lqp7 = lightS * lqp6;
+			var lqpM = lqp7 / 60;
+			var lqpH = lqpM / 60;
+			var lqpD = lqpH / 24;
+			var lqpY = lqpD / 365;
+			var relLX = Math.floor(lqpY)
+			relativeX.innerHTML = relLX;
+			earthT = earthT + 1;
+			earthX.innerHTML = earthT;
+			time = setTimeout(timers, 250);
+			if (isNaN(light)) {
+				clearTimeout(time);
+				document.getElementById("lightX").innerHTML = "Reenter Light %";
+				document.getElementById("lightX").style.color = 'red';
+				document.getElementById("earthX").innerHTML = "Reenter Light %";
+				document.getElementById("earthX").style.color = 'red';
+				document.getElementById("relativeX").innerHTML = "Reenter Light %";
+				document.getElementById("relativeX").style.color = 'red';
+			}
+			else if (light > 100 || light < 0) {
+				clearTimeout(time);
+				document.getElementById("lightX").innerHTML = "Reenter Light %";
+				document.getElementById("lightX").style.color = 'red';
+				document.getElementById("earthX").innerHTML = "Reenter Light %";
+				document.getElementById("earthX").style.color = 'red';
+				document.getElementById("relativeX").innerHTML = "Reenter Light %";
+				document.getElementById("relativeX").style.color = 'red';						}
+		}
+		timers();
+	}
+	function clocksS() {
+		clearTimeout(time);
+		var earthT = 0
+		var lightS = 0
+		document.getElementById("lightX").innerHTML = "Reenter Light %";
+		document.getElementById("lightX").style.color = 'red';
+		document.getElementById("earthX").innerHTML = "Reenter Light %";
+		document.getElementById("earthX").style.color = 'red';
+		document.getElementById("relativeX").innerHTML = "Reenter Light %";
+		document.getElementById("relativeX").style.color = 'red';
+	}
+//slideshow dots
+	var slideI2 = 1;
+	slidesS2(slideI2);
+	function slidesP(n) {
+		slidesS2(slideI2 += n);
+	}
+	function slideC(n) {
+		slidesS2(slideI2 = n);
+	}
+	function slidesS2(n) {
+		var num;
+		var slidesV = document.getElementsByClassName("slides");
+		var dots = document.getElementsByClassName("dot");
+		if (n > slidesV.length) {
+			slideI2 = 1
+		}
+		if (n < 1) {
+			slideI2 = slidesV.length
+		}
+		for (num = 0; num < slidesV.length; num++) {
+			slidesV[num].style.display = "none";
+		}
+		for (num = 0; num < dots.length; num++) {
+			dots[num].className = dots[num].className.replace(" active", "");
+		}
+		slidesV[slideI2-1].style.display = 'block';
+		dots[slideI2-1].className += " active";
+	}
+//TicTacToe game
+	function clickS() {
+	var box1V = document.getElementById("box1").value;
+	var box2V = document.getElementById("box2").value;
+	var box3V = document.getElementById("box3").value;
+	var box4V = document.getElementById("box4").value;
+	var box5V = document.getElementById("box5").value;
+	var box6V = document.getElementById("box6").value;
+	var box7V = document.getElementById("box7").value;
+	var box8V = document.getElementById("box8").value;
+	var box9V = document.getElementById("box9").value;
+	if ((box1V == 'x' || box1V == 'X') && (box2V == 'x' || box2V == 'X') && (box3V == 'x' || box3V == 'X')) {
+        	document.getElementById("winner").innerHTML = "Mars won!";
+		document.getElementById("box4").disabled = true;
+		document.getElementById("box5").disabled = true;
+		document.getElementById("box6").disabled = true;
+		document.getElementById("box7").disabled = true;
+		document.getElementById("box8").disabled = true;
+		document.getElementById("box9").disabled = true;
+    	}
+	else if ((box4V == 'x' || box4V == 'X') && (box5V == 'x' || box5V == 'X') && (box6V == 'x' || box6V == 'X')) {
+		document.getElementById("winner").innerHTML = "Mars won!";
+		document.getElementById("box1").disabled = true;
+		document.getElementById("box2").disabled = true;
+		document.getElementById("box3").disabled = true;
+		document.getElementById("box7").disabled = true;
+		document.getElementById("box8").disabled = true;
+		document.getElementById("box9").disabled = true;
+	}
+	else if ((box7V == 'x' || box7V == 'X') && (box8V == 'x' || box8V == 'X') && (box9V == 'x' || box9V == 'X')) {
+		document.getElementById("winner").innerHTML = "Mars won!";
+		document.getElementById("box1").disabled = true;
+		document.getElementById("box2").disabled = true;
+		document.getElementById("box3").disabled = true;
+		document.getElementById("box4").disabled = true;
+		document.getElementById("box5").disabled = true;
+		document.getElementById("box6").disabled = true;
+	}
+	else if ((box1V == 'x' || box1V == 'X') && (box4V == 'x' || box4V == 'X') && (box7V == 'x' || box7V == 'X')) {
+		document.getElementById("winner").innerHTML = "Mars won!";
+		document.getElementById("box2").disabled = true;
+		document.getElementById("box3").disabled = true;
+		document.getElementById("box5").disabled = true;
+		document.getElementById("box6").disabled = true;
+		document.getElementById("box8").disabled = true;
+		document.getElementById("box9").disabled = true;
+	}
+	else if ((box2V == 'x' || box2V == 'X') && (box5V == 'x' || box5V == 'X') && (box8V == 'x' || box8V == 'X')) {
+		document.getElementById("winner").innerHTML = "Mars won!";
+		document.getElementById("box1").disabled = true;
+		document.getElementById("box3").disabled = true;
+		document.getElementById("box4").disabled = true;
+		document.getElementById("box6").disabled = true;
+		document.getElementById("box7").disabled = true;
+		document.getElementById("box9").disabled = true;
+	}
+	else if ((box3V == 'x' || box3V == 'X') && (box6V == 'x' || box6V == 'X') && (box9V == 'x' || box9V == 'X')) {
+		document.getElementById("winner").innerHTML = "Mars won!";
+		document.getElementById("box1").disabled = true;
+		document.getElementById("box2").disabled = true;
+		document.getElementById("box4").disabled = true;
+		document.getElementById("box5").disabled = true;
+		document.getElementById("box7").disabled = true;
+		document.getElementById("box8").disabled = true;
+	}
+	else if ((box1V == 'x' || box1V == 'X') && (box5V == 'x' || box5V == 'X') && (box9V == 'x' || box9V == 'X')) {
+		document.getElementById("winner").innerHTML = "Mars won!";
+		document.getElementById("box2").disabled = true;
+		document.getElementById("box3").disabled = true;
+		document.getElementById("box4").disabled = true;
+		document.getElementById("box6").disabled = true;
+		document.getElementById("box7").disabled = true;
+		document.getElementById("box8").disabled = true;
+	}
+	else if ((box3V == 'x' || box3V == 'X') && (box5V == 'x' || box5V == 'X') && (box7V == 'x' || box7V == 'X')) {
+		document.getElementById("winner").innerHTML = "Mars won!";
+		document.getElementById("box1").disabled = true;
+		document.getElementById("box2").disabled = true;
+		document.getElementById("box4").disabled = true;
+		document.getElementById("box6").disabled = true;
+		document.getElementById("box8").disabled = true;
+		document.getElementById("box9").disabled = true;
+	}
+	else if ((box1V == 'o' || box1V == 'O') && (box2V == 'o' || box2V == 'O') && (box3V == 'o' || box3V == 'O')) {
+		document.getElementById("winner").innerHTML = "Earth won!";
+		document.getElementById("box1").disabled = true;
+		document.getElementById("box2").disabled = true;
+		document.getElementById("box3").disabled = true;
+		document.getElementById("box7").disabled = true;
+		document.getElementById("box8").disabled = true;
+		document.getElementById("box9").disabled = true;
+	}
+	else if ((box4V == 'o' || box4V == 'O') && (box5V == 'o' || box5V == 'O') && (box6V == 'o' || box6V == 'O')) {
+		document.getElementById("winner").innerHTML = "Earth won!";
+		document.getElementById("box1").disabled = true;
+		document.getElementById("box2").disabled = true;
+		document.getElementById("box3").disabled = true;
+		document.getElementById("box7").disabled = true;
+		document.getElementById("box8").disabled = true;
+		document.getElementById("box9").disabled = true;
+	}
+	else if ((box7V == 'o' || box7V == 'O') && (box8V == 'o' || box8V == 'O') && (box9V == 'o' || box9V == 'O')) {
+		document.getElementById("winner").innerHTML = "Earth won!";
+		document.getElementById("box1").disabled = true;
+		document.getElementById("box2").disabled = true;
+		document.getElementById("box3").disabled = true;
+		document.getElementById("box4").disabled = true;
+		document.getElementById("box5").disabled = true;
+		document.getElementById("box6").disabled = true;
+	}
+	else if ((box1V == 'o' || box1V == 'O') && (box4V == 'o' || box4V == 'O') && (box7V == 'o' || box7V == 'O')) {
+		document.getElementById("winner").innerHTML = "Earth won!";
+		document.getElementById("box2").disabled = true;
+		document.getElementById("box3").disabled = true;
+		document.getElementById("box5").disabled = true;
+		document.getElementById("box6").disabled = true;
+		document.getElementById("box8").disabled = true;
+		document.getElementById("box9").disabled = true;
+	}
+	else if ((box2V == 'o' || box2V == 'O') && (box5V == 'o' || box5V == 'O') && (box8V == 'o' || box8V == 'O')) {
+		document.getElementById("winner").innerHTML = "Earth won!";
+		document.getElementById("box1").disabled = true;
+		document.getElementById("box3").disabled = true;
+		document.getElementById("box4").disabled = true;
+		document.getElementById("box6").disabled = true;
+		document.getElementById("box7").disabled = true;
+		document.getElementById("box9").disabled = true;
+	}
+	else if ((box3V == 'o' || box3V == 'O') && (box6V == 'o' || box6V == 'O') && (box9V == 'o' || box9V == 'O')) {
+		document.getElementById("winner").innerHTML = "Earth won!";
+		document.getElementById("box1").disabled = true;
+		document.getElementById("box2").disabled = true;
+		document.getElementById("box4").disabled = true;
+		document.getElementById("box5").disabled = true;
+		document.getElementById("box7").disabled = true;
+		document.getElementById("box8").disabled = true;
+	}
+	else if ((box1V == 'o' || box1V == 'O') && (box5V == 'o' || box5V == 'O') && (box9V == 'o' || box9V == 'O')) {
+		document.getElementById("winner").innerHTML = "Earth won!";
+		document.getElementById("box2").disabled = true;
+		document.getElementById("box3").disabled = true;
+		document.getElementById("box4").disabled = true;
+		document.getElementById("box6").disabled = true;
+		document.getElementById("box7").disabled = true;
+		document.getElementById("box8").disabled = true;
+	}
+	else if ((box3V == 'o' || box3V == 'O') && (box5V == 'o' || box5V == 'O') && (box7V == 'o' || box7V == 'O')) {
+		document.getElementById("winner").innerHTML = "Earth won!";
+		document.getElementById("box1").disabled = true;
+		document.getElementById("box2").disabled = true;
+		document.getElementById("box4").disabled = true;
+		document.getElementById("box6").disabled = true;
+		document.getElementById("box8").disabled = true;
+		document.getElementById("box9").disabled = true;
+	}
+	else if ((box1V == 'X' || box1V == 'O') && (box2V == 'X' || box2V == 'O') && (box3V == 'X' || box3V == 'O') && (box4V == 'X' || box4V == 'O') && (box5V == 'X' || box5V == 'O') && (box6V == 'X' || box6V == 'O') && (box7V == 'X' || box7V == 'O') && (box8V == 'X' || box8V == 'O') && (box9V == 'X' || box9V == 'O')) {
+		document.getElementById("winner").innerHTML = "Stalemate";
+	}
+	else {
+		if (turns == 1) {
+			document.getElementById("winner").innerHTML = "Mars is up!";
+		}
+		else {
+			document.getElementById("winner").innerHTML = "Earth is up!";
+		}
+	}
+}
+function resets() {
+	location.reload()
+	document.getElementById("box1").value = "";
+	document.getElementById("box2").value = "";
+	document.getElementById("box3").value = "";
+	document.getElementById("box4").value = "";
+	document.getElementById("box5").value = "";
+	document.getElementById("box6").value = "";
+	document.getElementById("box7").value = "";
+	document.getElementById("box8").value = "";
+	document.getElementById("box9").value = "";
+	document.getElementById("img1").innerHTML = "";
+	document.getElementById("img2").innerHTML = "";
+	document.getElementById("img3").innerHTML = "";
+	document.getElementById("img4").innerHTML = "";
+	document.getElementById("img5").innerHTML = "";
+	document.getElementById("img6").innerHTML = "";
+	document.getElementById("img7").innerHTML = "";
+	document.getElementById("img8").innerHTML = "";
+	document.getElementById("img9").innerHTML = "";
+	document.getElementById("winner").innerHTML = "";
+	document.getElementById("box1").disabled = false;
+	document.getElementById("box2").disabled = false;
+	document.getElementById("box3").disabled = false;
+	document.getElementById("box4").disabled = false;
+	document.getElementById("box5").disabled = false;
+	document.getElementById("box6").disabled = false;
+	document.getElementById("box7").disabled = false;
+	document.getElementById("box8").disabled = false;
+	document.getElementById("box9").disabled = false;
+}
+var turns = 1;
+function turns1() {
+	if (turns == 1) {
+		document.getElementById("box1").value = "X";
+		document.getElementById("box1").disabled = true;
+		document.getElementById("img1").innerHTML = marsI;		
+		turns = 0;
+	}
+	else {
+		document.getElementById("box1").value = "O";
+		document.getElementById("box1").disabled = true;
+		document.getElementById("img1").innerHTML = earthI;
+		turns = 1;
+	}
+}
+function turns2() {
+	if (turns == 1) {
+		document.getElementById("box2").value = "X";
+		document.getElementById("box2").disabled = true;
+		document.getElementById("img2").innerHTML = marsI;
+		turns = 0;
+	}
+	else {
+		document.getElementById("box2").value = "O";
+		document.getElementById("box2").disabled = true;
+		document.getElementById("img2").innerHTML = earthI;
+		turns = 1;
+	}
+}
+function turns3() {
+	if (turns == 1) {
+		document.getElementById("box3").value = "X";
+		document.getElementById("box3").disabled = true;
+		document.getElementById("img3").innerHTML = marsI;
+		turns = 0;
+	}
+	else {
+		document.getElementById("box3").value = "O";
+		document.getElementById("box3").disabled = true;
+		document.getElementById("img3").innerHTML = earthI;
+		turns = 1;
+	}
+}
+function turns4() {
+	if (turns == 1) {
+		document.getElementById("box4").value = "X";
+		document.getElementById("box4").disabled = true;
+		document.getElementById("img4").innerHTML = marsI;
+		turns = 0;
+	}
+	else {
+		document.getElementById("box4").value = "O";
+		document.getElementById("box4").disabled = true;
+		document.getElementById("img4").innerHTML = earthI;
+		turns = 1;
+	}
+}
+function turns5() {
+	if (turns == 1) {
+		document.getElementById("box5").value = "X";
+		document.getElementById("box5").disabled = true;
+		document.getElementById("img5").innerHTML = marsI;
+		turns = 0;
+	}
+	else {
+		document.getElementById("box5").value = "O";
+		document.getElementById("box5").disabled = true;
+		document.getElementById("img5").innerHTML = earthI;
+		turns = 1;
+	}
+}
+function turns6() {
+	if (turns == 1) {
+		document.getElementById("box6").value = "X";
+		document.getElementById("box6").disabled = true;
+		document.getElementById("img6").innerHTML = marsI;
+		turns = 0;
+	}
+	else {
+		document.getElementById("box6").value = "O";
+		document.getElementById("box6").disabled = true;
+		document.getElementById("img6").innerHTML = earthI;
+		turns = 1;
+	}
+}
+function turns7() {
+	if (turns == 1) {
+		document.getElementById("box7").value = "X";
+		document.getElementById("box7").disabled = true;
+		document.getElementById("img7").innerHTML = marsI;
+		turns = 0;
+	}
+	else {
+		document.getElementById("box7").value = "O";
+		document.getElementById("box7").disabled = true;
+		document.getElementById("img7").innerHTML = earthI;
+		turns = 1;
+	}
+}
+function turns8() {
+	if (turns == 1) {
+		document.getElementById("box8").value = "X";
+		document.getElementById("box8").disabled = true;
+		document.getElementById("img8").innerHTML = marsI;
+		turns = 0;
+	}
+	else {
+		document.getElementById("box8").value = "O";
+		document.getElementById("box8").disabled = true;
+		document.getElementById("img8").innerHTML = earthI;
+		turns = 1;
+	}
+}
+function turns9() {
+	if (turns == 1) {
+		document.getElementById("box9").value = "X";
+		document.getElementById("box9").disabled = true;
+		document.getElementById("img9").innerHTML = marsI;
+		turns = 0;
+	}
+	else {
+		document.getElementById("box9").value = "O";
+		document.getElementById("box9").disabled = true;
+		document.getElementById("img9").innerHTML = earthI;
+		turns = 1;
+	}
+}
+</script>	
+<head>
+<link rel="apple-touch-icon" sizes="57x57" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="file:///Users/josephcolon/Downloads/Favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="file:///Users/josephcolon/Downloads/Favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="file:///Users/josephcolon/Downloads/Favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="file:///Users/josephcolon/Downloads/Favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="file:///Users/josephcolon/Downloads/Favicons/favicon-16x16.png">
+<link rel="manifest" href="file:///Users/josephcolon/Downloads/Favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="file:///Users/josephcolon/Downloads/Favicons/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">		
+<style>
+/* background image */
+	body {
+		background-image: url(https://m.media-amazon.com/images/I/61QkvLJVSvL._AC_SL1000_.jpg);
+		margin: auto;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-size: cover;
+	} 
+/* webpage border & color */
+	main {
+		background-color: brown;
+		color: orange; 
+		text-align: center;
+		max-width: 900px;
+		margin: auto;
+		border: 3px inset blue;
+		border-radius: 25px;
+	}
+/* dropdown title style */
+	summary {
+		font-weight: bold;
+		color: blue;
+		font-family: "Courier New", monospace;
+		font-size: large;
+	}
+/* overhead & dropdown menu */
+	.wrap {
+		top: 0;
+		left: 0;
+		height: auto;
+		width: 100%;
+	}
+	.container1 {
+		top: 0;
+		left: 0;
+		position: absolute;
+		width: 100%;
+	}
+	.menu {
+		font: bold 12px/10px sans-serif;
+		text-align: center;
+		display: inline;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.menu li {
+		color: gray;
+		display: inline-block;
+		margin-right: -2px;
+		position: relative;
+		padding: 12px 40px;
+		border: 1px solid silver;
+		border-radius: 1.5px;
+		background-color: #FFF5f2;
+		cursor: pointer;
+	}
+	.menu li:hover {
+		background-color: black;
+		color: yellow;
+	}
+	.menu li:hover ul {
+		display: block;
+		opacity: 1;
+		visibility: visible;
+	}
+	.submenu {
+		padding: 0;
+		left: 0;
+		position: absolute;
+		top: 43.5px;
+		width: 125.5px;
+		opacity: 0;
+		visibility: hidden;
+	}
+	.submenu li {
+		background-color: gray;
+		display: block;
+		color: snow;
+	}
+	.submenu li:hover {
+		color: purple;
+		background-color: yellow;
+	}
+/* main margins */
+	.margdiv {
+		margin: 50px 18px 18px 18px;
+	}
+/* form style */
+	.formdiv {
+		text-align: right;
+		text-decoration: bold;
+	}
+/* font styles */
+	.font1 {
+		color: #FF00FF;
+		font-family: Impact;
+		font-size: large;
+		text-align: left;
+		text-decoration: bold;
+		background-color: brown;
+	}
+	.font2 {
+		color: #FF00FF;
+		font-family: Impact;
+		font-size: 25px;
+		text-align: center;
+		text-decoration: bold;
+		background-color: brown;
+	}
+	.font3 {
+		color: #FF00FF;
+		font-family: Impact;
+		font-size: large;
+		text-align: right;
+		text-decoration: bold;
+		background-color: brown;
+	}
+/* table styles */
+	table {
+		border: 1px solid silver;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	td:hover {
+		background-color: blue;
+		color: orange;
+	}
+	tr, th {
+		background-color: black;
+		color: cornsilk;
+	}
+	tr, td {
+		background-color: darkgreen;
+		color: white;
+	}
+	ol {
+		list-style-type: upper-roman;
+	}
+	.ulf {
+		text-shadow: 1px 2px blue;
+	}
+/* button styles */
+	.inputB {
+		background-color:purple;
+		color: yellow;
+		border: solid yellow 2px;
+		width:100%
+	}
+	.inputT {
+		background-color: black;
+		color: yellow;
+		border: solid black 2px;
+		text-align: center;
+		width: 98%
+	}
+/* slideshow */
+	.slideshow {
+		margin: auto;
+	}
+	.slides {
+		display: none;
+	}
+	.text {
+		color: orange;
+		font-size: 15px;
+		text-align: center;
+	}
+	.number {
+		color: #f2f2f2;
+		font-size: 12px;
+		padding: 8px 12px;
+		position: absolute;
+		top: 0;
+	}
+	.dot {
+		cursor: pointer;
+		height: 15px;
+		width: 15px;
+		margin: 0 2px;
+		background-color: #bbb;
+		border-radius: 50%;
+		display: inline-block;
+		transition: background-color 0.6s ease;
+	}
+	.active, .dot:hover {
+		background-color: #717171;
+	}
+	.fade {
+		-webkit-animation-name: fade;
+		-webkit-animation-duration: 1.5s;
+		animation-name: fade;
+  		animation-duration: 1.5s;
+	}
+	@-webkit-keyframes fade {
+		from {opacity: .4}
+		to {opacity: 1}
+	}
+	@keyframes fade {
+		from {opacity: .4}
+		to {opacity: 1}
+	}
+/* TicTacToe */
+	#box1, #box2, #box3, #box4, #box5,
+#box6, #box7, #box8, #box9 {
+		width: 80px;
+		height: 52px;
+		margin: auto;
+		border: 2px solid blue;
+		border-radius: 6px;
+		font-size: 30px;
+		text-align: center;
+		background-color: black;
+	}
+	#img1, #img2, #img3, #img4, #img5,
+#img6, #img7, #img8, #img9 {
+		width: 80px;
+		height: 52px;
+		margin: auto;
+		text-align: center;
+	}
+	#tableTac {
+		border: 5px solid orange;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: black;
+	}
+	#resets {
+		box-sizing: border-box;
+		width: 95px;
+		height: 55px;
+		border: 1px solid dodgerblue;
+		margin: auto;
+		border-radius: 4px;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		background-color: dodgerblue;
+		color: white;
+		font-size: 20px;
+		cursor: pointer;
+	}
+	#winner {
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		color: dodgerblue;
+		font-size: 20px;
+	}
+	#board {
+		text-align: center;
+	}
+	#boardC {
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		color: dodgerblue;
+		font-size: 17px;
+	}
+	#backTac {
+		text-align: center;
+		position: absolute;
+		z-index: -1;
+		max-width: 50px;
+		margin: 50px 500px 18px 500px;
+	}	
+</style>
+	<meta name=author content=marashen charset=utf-8>
+	<title> Astronomical Astronomy &#169; </title>
+</head>
+<body>
+<!-- TicTacToe Background game -->
+	<div id="backTac">
+			<input type="text" id="box1" onclick="turns1(); clickS();">
+			<input type="text" id="box2" onclick="turns2(); clickS();">
+			<input type="text" id="box3" onclick="turns3(); clickS();">
+			<input type="text" id="box4" onclick="turns4(); clickS();">
+			<input type="text" id="box5" onclick="turns5(); clickS();">
+			<input type="text" id="box6" onclick="turns6(); clickS();">
+			<input type="text" id="box7" onclick="turns7(); clickS();">
+			<input type="text" id="box8" onclick="turns8(); clickS();">
+			<input type="text" id="box9" onclick="turns9(); clickS();">
+	</div>
+
+		<main>
+<!-- overhead menu & submenu start -->
+	<div class=wrap>
+		<div class=container1>
+			<ul class=menu>
+				<li><a href="#solar"> Solar System </a></li>
+				<li><a href="#stars"> The Local Group </a></li>
+				<li><a href="#rela"> Relativity </li>
+				<li><a href="#links"> Quickhops
+					<ul class=submenu>
+						<li><a href=https://www.youtube.com/watch?v=uD4izuDMUQA> Universe Timelapse </a></li>
+						<li><a href=https://mars.nasa.gov/> About Mars </a></li>
+						<li><a href=https://www.natgeokids.com/uk/discover/science/space/facts-about-mars/> Mars for Kids </a></li>
+						<li><a href=https://www.space.com/17661-theory-general-relativity.html> More Relativity </a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+<!-- overhead menu & submenu end -->
+	<div class=margdiv>
+<!-- This is actually a really cool video that I definitely recommend watching! -->
+	<p class=font2> The Unbelievable Scale of the Universe </p>
+	<iframe width=853 height=505 src=https://www.youtube.com/embed/i93Z7zljQ7I?autoplay=1></iframe>
+	<p class=font2><a href=https://www.youtube.com/watch?v=i93Z7zljQ7I><font face=Impact> Full Screen Video </font></a></p>
+<!-- Some planet facts I think are cool -->
+	<section>
+		<h1 class="font1" id="solar"> The <em>Terrestrial</em> &nbspPlanets </h1>
+			<div style="text-align: left;">
+			<ol>
+				<li>
+				<details>
+				<summary> Mercury </summary>
+					<ul class=ulf>
+						<li> Almost Tidally Locked 3:2 spin. </li>
+						<li> Days are longer then years. </li>
+						<li> 0.38G or 3.7 m/s<sup>2</sup>. </li>
+						<li> Surface Temperature ranges from -279°F to 801°F. </li>
+						<li> Atmospheric Pressure is 10<sup>-12</sup> bar. </li>
+					</ul>
+				</details>
+				</li>
+				<li> 
+				<details>
+				<summary> Venus </summary>
+					<ul class=ulf>
+						<li> Runaway Greenhouse Effect. </li>
+						<li> Venus spins backwards, or clockwise. </li>
+						<li> 0.91G or 8.87 m/s<sup>2</sup>. </li>
+						<li> Surface Temperature ranges from 820°F to 900°F. </li>
+						<li> Atmospheric Pressure is 95 bars. </li>
+					</ul>
+				</details>
+				</li>
+				<li>
+				<details>
+				<summary> Earth </summary>
+					<ul class=ulf>
+						<li> Days are slowly getting longer. </li>
+						<li> Gravitational Fields change based on location. </li>
+						<li> 1.00G or 9.81 m/s<sup>2</sup>. </li>
+						<li> Surface Temperature ranges from -129°F to 136°F. </li>
+						<li> Atmospheric Pressure is 1.01 bar. </li>
+					</ul>
+				</details>
+				</li>
+				<li>
+				<details>
+				<summary> Mars </summary>
+					<ul class=ulf>
+						<li> Very Thin Atmosphere. </li>
+						<li> Sunsets on Mars are blue.  </li>
+						<li> 0.38 G's or 3.72 m/s<sup>2</sup>. </li>
+						<li> Surface Temperature ranges from -125°F to 23°F. </li>
+						<li> Atmospheric Pressure is 0.006 bar. </li>
+					</ul>
+				</details>
+				</li> 
+			</ol>
+			</div>
+			<div class="slideshow">
+				<div class="slides fade">
+					<div class="numbertext">0 / 8</div>
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHymRKii_c_hCLiVeu338mrMvi7zLRp_q6ew&usqp=CAU" width="250" height="500" alt="The Sun" style="width:100%">
+				<div class="text">The Sun</div>
+  			</div>
+  				<div class="slides fade">
+					<div class="numbertext">1 / 8</div>
+					<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiINoFmdc2af9BkdPGtZjuzKlTDYUEUre-Jg&usqp=CAU" width="250" height="500" alt="Mercury" style="width:100%">
+				<div class="text">Mercury</div>
+			</div>
+				<div class="slides fade">
+				<div class="numbertext">2 / 8</div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxVFk_FEwYcngsxFfNSfAXMJbBYS71fkKhkg&usqp=CAU" width="250" height="500" alt="Venus" style="width:100%">
+				<div class="text">Venus</div>
+			</div>
+				<div class="slides fade">
+				<div class="numbertext">3 / 8</div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDdME14mwONKrGv8zCoiJk81BOUDcnSpe-Bw&usqp=CAU" width="250" height="500" alt="Earth" style="width:100%">
+				<div class="text">Earth</div>
+			</div>
+				<div class="slides fade">
+				<div class="numbertext">4 / 8</div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMQWd7-N09QoyjNZgGdVxV6GzlbPfyJxcuow&usqp=CAU" width="250" height="500" alt="Mars" style="width:100%">
+				<div class="text">Mars</div>
+			</div>
+				<div class="slides fade">
+				<div class="numbertext">5 / 8</div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYqr62-LS91N9NjR_HJ6eQYvK8GyMRM-a2QQ&usqp=CAU" width="250" height="500" alt="Jupiter" style="width:100%">
+				<div class="text">Jupiter</div>
+			</div>
+				<div class="slides fade">
+				<div class="numbertext">6 / 8</div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSshgpQBj2V3ZMlJPos9GoTrlTDie2Knt5DpQ&usqp=CAU" width="250" height="500" alt="Saturn" style="width:100%">
+				<div class="text">Saturn</div>
+			</div>
+				<div class="slides fade">
+				<div class="numbertext">7 / 8</div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3KMphml3e7IvQtp26ILIZlZPEicd0Eb6ixg&usqp=CAU" width="250" height="500" alt="Uranus" style="width:100%">
+				<div class="text">Uranus</div>
+			</div>
+				<div class="slides fade">
+				<div class="numbertext">8 / 8</div>
+				<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuTXG4vFgkdnDCnZDdmkHFwInLI5IELenaAQ&usqp=CAU" width="250" height="500" alt="Neptune" style="width:100%">
+				<div class="text">Neptune</div>
+			</div>
+		</div><br>
+		<div style="text-align:center">
+			<span class="dot" onclick="slideC(1)"></span>
+			<span class="dot" onclick="slideC(2)"></span>
+			<span class="dot" onclick="slideC(3)"></span>
+			<span class="dot" onclick="slideC(4)"></span>
+			<span class="dot" onclick="slideC(5)"></span>
+			<span class="dot" onclick="slideC(6)"></span>
+			<span class="dot" onclick="slideC(7)"></span>
+			<span class="dot" onclick="slideC(8)"></span>
+			<span class="dot" onclick="slideC(9)"></span>
+		</div>
+			<h3 class="font2"> Planet Superlatives </h3>
+			<p> Click the boxes to reveal the winners! </p>
+			<table border="5">
+				<tr>
+					<td><input class="inputB" type="button" value="Reset" onclick="reset()"></td>
+					<td colspan="3"><input class="inputT" type="text" id="ansbox"></td>
+				</tr>
+				<tr>
+					<td><input class="inputB" type="button" value="Largest Planet?" onclick="display('Jupiter')"></td>
+					<td><input class="inputB" type="button" value="Smallest Planet?" onclick="display('Mercury')"></td>
+					<td><input class="inputB" type="button" value="Farthest Planet?" onclick="display('Neptune')"></td>
+					<td><input class="inputB" type="button" value="Closest Planet?" onclick="display('Mercury')"></td>
+				</tr>
+				<tr>
+					<td><input class="inputB" type="button" value="Hottest Planet?" onclick="display('Venus')"></td>
+					<td><input class="inputB" type="button" value="Coldest Planet?" onclick="display('Uranus')"></td>
+					<td><input class="inputB" type="button" value="Densest Planet?" onclick="display('Earth')"></td>
+					<td><input class="inputB" type="button" value="Lightest Planet?" onclick="display('Saturn')"></td>
+				</tr>
+				<tr>
+					<td><input class="inputB" type="button" value="Fastest Orbit?" onclick="display('Mercury')"></td>
+					<td><input class="inputB" type="button" value="Slowest Orbit?" onclick="display('Neptune')"></td>
+					<td><input class="inputB" type="button" value="Fastest Rotation?" onclick="display('Jupiter')"></td>
+					<td><input class="inputB" type="button" value="Slowest Rotation?" onclick="display('Venus')"></td>
+				</tr>
+				<tr>
+					<td><input class="inputB" type="button" value="Highest Gravity?" onclick="display('Jupiter')"></td>
+					<td><input class="inputB" type="button" value="Lowest Gravity?" onclick="display('Mars')"></td>
+					<td><input class="inputB" type="button" value="Thickest Atmosphere?" onclick="display('Venus')"></td>
+					<td><input class="inputB" type="button" value="Thinnest Atmosphere?" onclick="display('Mercury')"></td>
+				</tr>
+			</table>
+	</section>
+<!-- I love Mars so had to dedicate a bit of this page to the red planet lol -->
+	<article>
+		<div style="text-align:left;">
+		<br>
+		<h3>
+			<font color="red" face="Lobster"> Mars Information </font>
+		</h3>
+			<p>
+				<blockquote cite="https://www.space.com/47-mars-the-red-planet-fourth-planet-from-the-sun.html">
+				<font color="yellow" size="3"> Mars is the fourth planet from the sun. Befitting the Red Planet's bloody color, the Romans named it after their god of war. In truth, the Romans 				copied the ancient Greeks, who also named the planet after their god of war, Ares.<br><br>
+				Other civilizations also typically gave the planet names based on its color — for example, the Egyptians named it "Her Des-her," meaning "the red one," while ancient 				Chinese astronomers dubbed it "the fire star." 
+				</font>
+				</blockquote>
+			</p>
+			</div>
+			<p><font color="orange" size="5">Current Time on Mars:
+				<span id="hour" style="color:black;">??</span>
+				<span id="hid1" style="color:white;">:</span>
+				<span id="min" style="color:black;">??</span>
+				<span id="hid2" style="color:white;">:</span>
+				<span id="sec" style="color:black;">??</span>
+			</font>
+			&nbsp;&nbsp;<button onclick=update()>Reveal Martian Time</button></p>
+	<div id="board">
+		<h1 class="font2">Mars vs. Earth!</h1>
+		<p id="boardC">Tap on a box to claim territory for your planet!<br><strong>Earth starts!</strong></p>
+	<table id="tableTac">
+		<tr>
+			<td id="img1" style="background-color:black;"><input type="text" id="box1" onclick="turns1(); clickS();"></td>
+			<td id="img2" style="background-color:black;"><input type="text" id="box2" onclick="turns2(); clickS();"></td>
+			<td id="img3" style="background-color:black;"><input type="text" id="box3" onclick="turns3(); clickS();"></td>
+		</tr>
+		<tr>
+			<td id="img4" style="background-color:black;"><input type="text" id="box4" onclick="turns4(); clickS();"></td>
+			<td id="img5" style="background-color:black;"><input type="text" id="box5" onclick="turns5(); clickS();"></td>
+			<td id="img6" style="background-color:black;"><input type="text" id="box6" onclick="turns6(); clickS();"></td>
+		</tr>
+		<tr>
+			<td id="img7" style="background-color:black;"><input type="text" id="box7" onclick="turns7(); clickS();"></td>
+			<td id="img8" style="background-color:black;"><input type="text" id="box8" onclick="turns8(); clickS();"></td>
+			<td id="img9" style="background-color:black;"><input type="text" id="box9" onclick="turns9(); clickS();"></td>
+		</tr>
+	</table>
+			<button id="resets" onclick="resets()">New Game!</button><br><br>
+		<p id="winner"></p>
+	</div>
+	</article>
+	<!-- Basic information on some of my favorite stars -->
+	<section>
+		<h4 id="stars" class="font1"> The Local Group </h4>
+		<div style="text-align:left;">
+			<p> The Local Group is a large cluster of galaxies & gravitationally dense space that is gravitationally bound to us. As the Universe continues to expand rapidly all other galaxies outside of our Local Group will be lost to us forever! This is because the expansion of the Universe is faster then we could ever hope to travel & by the time we ever reached the edge of the Local Group all other celestial bodies will be long gone. </p></div>
+		<h3 style="color: blue;"> Galaxies in The Local Group </h3>
+	<table>
+		<tr>
+			<th id="titles0" style="background-color:magenta;"></th>
+			<th id="titles1" style="background-color:magenta;"></th>
+		</tr>
+		<tr>
+			<td style="background-color:black;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjjYkqQt8FYSe9WOQ6zo82w2eJoNE070W0NQ&usqp=CAU" width="350" height="350" alt="The Milky Way"></td>
+			<td style="background-color:black;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVs_pCKVTZX2iJG1k0Dfa_TA9bD3n7xyZLEw&usqp=CAU" width="350" height="350" alt="Andromeda"></td>
+		</tr>
+		<tr>
+			<td id="mway" style="background-color:blue;"></td>
+			<td id="andro" style="background-color:blue;"></td>
+		</tr>
+		<tr>
+			<td><input class="inputB" type="button" value="Information on the Galaxy in this image!" onclick="g1click()"></td>
+			<td><input class="inputB" type="button" value="Information on the Galaxy in this image!" onclick="g2click()"></td>
+		</tr>
+		<tr>
+			<th id="titles2" style="background-color:magenta;"></th>
+			<th id="titles3" style="background-color:magenta;"></th>
+		</tr>
+		<tr>
+			<td style="background-color:black;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGGbBKclja7peiT03c8pykt4xDx1aYr24IKA&usqp=CAU" width="350" height="350" alt="Triangulum Galaxy"></td>
+			<td style="background-color:black;"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH71mpDiAapdROGtROnh7N4FY2m9D2R-f3bQ&usqp=CAU" width="350" height="350" alt="NGC 6822"></td>
+		</tr>
+		<tr>
+			<td id="trig" style="background-color:blue;"></td>
+			<td id="ngc" style="background-color:blue;"></td>
+		</tr>
+		<tr>
+			<td><input class="inputB" type="button" value="Information on the Galaxy in this image!" onclick="g3click()"></td>
+			<td><input class="inputB" type="button" value="Information on the Galaxy in this image!" onclick="g4click()"></td>
+		</tr>
+	</table>
+		<h4 class="font2">
+		<b> The Closest, Largest, & Weirdest Celestial Bodies 
+		</b>
+		</h4>
+		<table style="width: 100%;">
+			<tr>
+				<th>Designation</th>
+				<th>Spectral Type</th>
+				<th>Mass/Size</th>
+				<th>Light Years Away</th>
+			</tr>
+			<tr>
+				<td>The Sun</td>
+				<td><span style="color:#FFF5f2;font-weight:bold;"> G2V </span></td>
+				<td>1.000 M</td>
+				<td>8 lm</td>
+			</tr>
+			<tr>
+				<td>Proxima Centauri</td>
+				<td><span style="color:#FFCC6F;font-weight:bold;"> M5.5V </span></td>
+				<td>0.123 M</td>
+				<td>4.246 ly</td>
+			</tr>
+			<tr>
+				<td>Barnard’s Star</td>
+				<td><span style="color:#FFC97F;font-weight:bold;"> M4.0V </span></td>
+				<td>0.144 M</td>
+				<td>5.978 ly</td>
+			</tr>
+			<tr>
+				<td>Wolf 359</td>
+				<td><span style="color:#FFC370;font-weight:bold;"> M6.0V </span></td>
+				<td>0.090 M</td>
+				<td>7.795 ly</td>
+			</tr>
+			<tr>
+				<td>Sirius A</td>
+				<td><span style="color:#B5C7FF;font-weight:bold;"> A1V </span></td>
+				<td>2.000 M</td>
+				<td>8.611 ly</td>
+			</tr>
+			<tr>
+				<td>Procyon</td>
+				<td><span style="color:#F1EFFF;font-weight:bold;"> F5IV-V </span></td>
+				<td>1.499 M</td>
+				<td>11.45 ly</td>
+			</tr>
+			<tr>
+				<td>Betelgeuse</td>
+				<td><span style="color:#FFCA8A;font-weight:bold;"> M1I </span></td>
+				<td>11.00 M</td>
+				<td>642.5 ly</td>
+			</tr>
+			<tr>
+				<td>Rigel</td>
+				<td><span style="color:#B6CEFF;font-weight:bold;"> B8I </span></td>
+				<td>18.00 M</td>
+				<td>864.3 ly</td>
+			</tr>
+			<tr>
+				<td>UY Scuti</td>
+				<td><span style="color:#FFBB7B;font-weight:bold;"> M4I-I </span></td>
+				<td>i 25-40 M</td>
+				<td>5219 ly</td>
+			</tr>
+			<tr>
+				<td>Pillars of Creation</td>
+				<td><span style="color:#00FFEC;font-weight:bold;"> Nebula </span></td>
+				<td>4 ly</td>
+				<td>7000 ly</td>
+			</tr>
+			<tr>
+				<td>Messier 31</>
+				<td><span style="color:#FFE1C7;font-weight:bold;"> Galaxy </span></td>
+				<td>110,000 ly</td>
+				<td>2.537m ly</td>
+			</tr>	
+			<tr>
+				<td>SMSS J2157-3602</td>
+				<td><span style="color:#49D6FF;font-weight:bold;"> Quasar </span></td>
+				<td>34b M</td>
+				<td>12.5b ly</td>
+			</tr>
+		</table>
+	</section>
+	<div class=formdiv>
+		<p class=font3> If you're up for some research.. </p>
+		<form action="">
+			<label id=LSA>Largest Star? </label><input type="text" name="LS"><br>
+			<label id=CSA>Closest Star? </label><input type="text" name="CS"><br>
+			<label id=SSA>Smallest Star? </label><input type="text" name="SS"><br>
+			<label id=FSA>Farthest Star? </label><input type="text" name="FS"><br>
+			<label id=YSA>Youngest Star? </label><input type=”text” name=”YS”><br>
+			<label id=BSA>Brightest Star? </label><input type=”text” name=”BS”><br>
+			<label id=OSA>Oldest Star? </label><input type=”text” name=”OS”><br>
+			<label id=DSA>Densest Star? </label><input type=”text” name=”DS”><br>
+			<input type="button" value="Reveal Answers!" onclick="starsA()">
+		</form>
+		</div>
+		<section>
+			<h4 id="rela" class="font1"> Relativity </h4>
+				<p style="text-align: left;"> If you clicked reveal answers above you've seen what the oldest star is. However due to relativity time can get a bit wonky. The best way to explain it is imagine an unbreakable string. Now imagine a particle of light is permanently attached to this string. The time it takes for light to reach the start of the string to the end always has to be the same. Since large celestial bodies warp the fabric of space, certain parts of this string will also warp around it. This makes the length of this string longer. Since light is constant, i.e it can not accelerate nor slow down, how does it manage to arrive at the end of the this elongated string at the same time as it would the regular one? This is what Relativity is. Regions wherein this 'string' is elongated & light has a longer path to take before reaching its destination have an effect called time dilation. Time moves slower to accomadate this effect. A minute near the event horizon of a black hole could be thousands of years for someone just slightly farther away! </p>
+				<h3> <font color="white" face="Lobster"> Calculating Time Dilation </h3>
+				<p><em> The following equations are used to calculate time dilation! Satellites orbiting the Earth actually use this equation to make micro adjustments to their internal clocks. This is because even with Earth's 'relatively' weak gravitational field, space-time is still stretched; ever so slightly!</em><br><br> For a more personal example, let's say you have a friend traveling for 20 years at 50% light speed (which is around 150,000,000 m/s). Plugging in those numbers into the calculators below will tell you (after converting seconds to years) how much time for them has passed; relative to your 20 years on Earth!<br><br>
+If you've ever seen Interstellar you'll know how gravity can affect time dilation as well! Lets use the supermassive blackhole Ton-618 for this next example. With an estimated mass of 66 billion solar masses, or 1.31 x 10<sup>41</sup>kg & a Schwarzschild radius of 1300 astronomical units (that's around 195 billion km, or for calculating purposes; 195000000000000 m), if you were as close as possible to this blackhole you can plug in the numbers to see how long 1 year for you would be for the rest of the universe!</p></font>
+					<p style="color:yellow;"> Enter a number between 1 & 100 below to see special relativity in clock time! </p>
+					<table>
+					<tr>
+						<td colspan="1"><input class="inputB" type="button" onclick="clocksS()" value="Reset"></td>
+						<td><input class="inputT" type="text" id="lightP"></td>
+						<td><input class="inputB" type="button" onclick="clocksA()" value="Run the Clocks!"></td>
+					<tr>
+						<th> Earth Time (Years) </th>
+						<th> Relative Time (Years) </th>
+						<th> Light Speed % </th>
+					</tr>
+					<tr>
+						<td id="earthX" style="background-color:yellow;"></td>
+						<td id="relativeX" style="background-color:yellow;"></td>
+						<td id="lightX" style="background-color:yellow;"></td>
+					</tr>
+					</table>					
+					<ol>
+					<li>
+						<details>
+						<summary><u> Special Relativity Time Dilation Equation:</u><br><br><font color="white" face="Courier">t' = t &Sqrt;(1 - V<sup>2</sup> / c<sup>2</sup>)</font></summary>
+							<ul class=ulf>
+								<li> t' = Dilated Time or the time of the object </li>
+								<li> t = Stationary Time or the time of the observer </li>
+								<li> V = Velocity or speed of the object </li>
+								<li> c = Speed of Light in a <em>vacuum</em> </li>
+							</ul>
+						</details>
+					</li>
+					<br>
+					<li>
+						<details>
+						<summary><u> Gravitational Time Dilation Equation:</u><br><br><font color="white" face="Courier">T = T' / &Sqrt;(1 - (2GM / rc<sup>2</sup>))</font></summary>
+							<ul class=ulf>
+								<li> T = Dilated Time or time passed for the object </li>
+								<li> T<sub>0</sub> = Stationery Time or time passed for the observer </li>
+								<li> G = Gravitational Constant </li>
+								<li> M = Mass of the Gravitational Body </li>
+								<li> r = Distance from the <em>center</em> of the Gravitational Body </li>
+								<li> c = Speed of Light in a <em>vacuum</em> </li>
+							</ul>
+						</details>
+					</li>
+					</ol>
+					<div class=formdiv>
+					<h2><font color="silver" face="Lobster"><u> Years to Seconds </u></h2>
+				<h4 id="years2s"> Plug in desired years you want to use for time dilation calculations to get your t or T<sub>0</sub> value! </h4></font>
+			<p> 	Years (Unit: y)<input type="text" id="years"><br>
+			<button onclick="calcY()">Calculate Seconds</button></p>
+					<h2><font color="silver" face="Lobster"><u> Special Relativity </u></h2></p>
+				<h4 id="srans"> Try seeing how speed affects time! Answer will be in seconds. </h4></font>
+			<p> 	t (Unit: s)<input type="text" id="time1"><br>
+				V (Unit: m/s)<input type="text" id="vel"><br>
+				c (Value: 299,792,458)<input type="text" id="light1"><br>
+			<button onclick="calcR()">Calculate Special Relativity</button></p>
+					 <h2><font color="silver" face="Lobster"><u> Gravitational Time Dilation </u></h2></p>
+				<h4 id="gtdans"> Try seeing how gravity affects time! Answer will be in seconds. </h4></font>
+			<p> 	T<sub>0</sub> (Unit: s)<input type="text" id="time2"><br>
+				M (Unit: kg)<input type="text" id="mass"><br>
+				Exponent for M<input type="text" id="exop"><br>
+				r (Unit: m)<input type="text" id="dist"><br>
+				G (Value: 0.000000000066743)<input type="text" id="gcons"><br>
+				c (Value: 299,792,458)<input type="text" id="light2"><br>
+			<button onclick="calcG()">Calculate Time Dilation</button></p>
+					<h2><font color="silver" face="Lobster"><u> Seconds to Years </u></h2>
+				<h4 id="seconds2y"> Plug in answers from the time dilation calculators to see it in years! </h4></font>
+			<p> 	Seconds (Unit: s)<input type="text" id="seconds"><br>
+			<button onclick="calcS()">Calculate Years</button></p>
+			<p><a href="https://www.calculator.net/conversion-calculator.html" target="_blank" rel="noopener no referrer"> Helpful Unit Conversion Site!</a></p>
+			</div>
+		</section>			
+		<footer>
+		<h3><em>About Me & Astronomical Astronomy</em></h3>
+		<p>This page was made in conjunction with the HTML/CSS course and Javascript course offered and instructed by the Tech Academy. I myself have a strong passion for Space and the greater Universe, as well as a growing passion for learning how to properly code. This website serves as an example of what I was able to create at an extremely elementary stage in my learning process, and hopefully will contrast and show my improvement in future endeavors. Please use my email below to contact me about any inquiries or any tidbits of misinformation that perhaps may be represented on this page</p>
+		<p id="links"><strong><font color="blue" face="Courier"> Links </font></strong></p>
+			<nav>
+			<div style="color: blue;">
+				<a href=https://www.youtube.com/watch?v=uD4izuDMUQA> Universe Timelapse </a> |
+				<a href=https://mars.nasa.gov/> About Mars </a> |
+				<a href=https://www.natgeokids.com/uk/discover/science/space/facts-about-mars/> Mars for Kids </a> |
+				<a href=https://www.space.com/17661-theory-general-relativity.html> More Relativity </a>
+			</nav>
+			</div>
+		</footer>
+	</div>
+	<p><a href="https://workshop.codes/78ZGB">Link to my other project!</a></p>
+	<p><u> Email</u>:<em> j.colon115@outlook.com </em></p>
+	</main>
+</body>
+</html>
