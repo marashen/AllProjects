@@ -2,9 +2,11 @@
 			<p> Click the boxes to reveal the winners! </p>
 			<table border="5">
 				<tr>
+					<!--Will Reset the display box-->
 					<td><input class="inputB" type="button" value="Reset" onclick="reset()"></td>
 					<td colspan="3"><input class="inputT" type="text" id="ansbox"></td>
 				</tr>
+				<!-- All questions & answers! Answers display whenever the User clicks a box -->
 				<tr>
 					<td><input class="inputB" type="button" value="Largest Planet?" onclick="display('Jupiter')"></td>
 					<td><input class="inputB" type="button" value="Smallest Planet?" onclick="display('Mercury')"></td>
@@ -30,3 +32,13 @@
 					<td><input class="inputB" type="button" value="Thinnest Atmosphere?" onclick="display('Mercury')"></td>
 				</tr>
 			</table>
+<!-- Just the pretty basic Javascript I used to make this!-->
+<script>
+	function display(val) {
+		document.getElementById("ansbox").value = ""
+		document.getElementById("ansbox").value+=val
+	}
+	function reset() {
+		document.getElementById("ansbox").value = ""
+	}
+</script>
